@@ -35,6 +35,7 @@ AUTH_USER_MODEL = 'users.User'
 
 INSTALLED_APPS = [
     'users.apps.UsersConfig',
+    'presentations.apps.PresentationsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
