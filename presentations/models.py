@@ -1,3 +1,11 @@
+from users.models import User
+
 from django.db import models
 
-# Create your models here.
+class Presentation(models.Model):
+	def __str__(self):
+		return self.session_title
+	session_title = models.CharField(max_length = 100)
+	date_and_time = models.DateTimeField('Presentation date and time')
+	presentation = models.FileField(blank=True)
+	presenter = models.ForeignKey(User, blank=True, null=True)
