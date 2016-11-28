@@ -1,0 +1,23 @@
+{% extends 'presentations/base.html' %}
+
+{% block content %}
+{{ conference_id }}
+{% if object_list %}
+	<ul>
+	{% for presentation in object_list %}
+		<div class="post">
+		<a href="{% url 'presentations:update' presentation.id %}">
+		{{ presentation }}
+		</a>
+		</div>
+		{{ presentation.date_and_time }}
+		<div>
+		{{ presentation.presentation }}
+		</div>
+	{% endfor %}
+	</ul>
+	{% else %}
+		<p>No Presentations are available</p>
+    {% endif %}
+    
+{% endblock %}
