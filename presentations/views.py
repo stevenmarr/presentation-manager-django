@@ -1,12 +1,20 @@
 from django.shortcuts import render
 from django.views import generic
+from django.views.generic.edit import FormView
 from django.contrib.auth.decorators import login_required
 
+from .forms import PresentationForm
 from .models import Presentation
 
 
-@login_required
-def index(request, conference_id):
-	presentations = Presentation.objects.filter(conference_id=conference_id)
-	context = {'presentations': presentations, 'conference_id': conference_id}
-	return render(request, 'presentations/index.html', context)
+class PresentationListView(generic.ListView):
+	def get_queryset(self):
+		current_user = self.request.user
+		return Presentation.objects.filter(presenter_id=current_user.id)
+
+	
+class UpdateView(generic.UpdateView):
+	model = Presentation
+	fields = ['session_title','presentation']
+	template_name = 'presentations/update.html'
+
