@@ -1,4 +1,5 @@
 from users.models import User
+from conferences.models import Conference
 
 from django.db import models
 
@@ -9,3 +10,4 @@ class Presentation(models.Model):
 	date_and_time = models.DateTimeField('Presentation date and time')
 	presentation = models.FileField(blank=True)
 	presenter = models.ForeignKey(User, blank=True, null=True)
+	conference = models.ForeignKey(Conference)
