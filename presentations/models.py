@@ -3,6 +3,7 @@ from conferences.models import Conference
 
 from django.core.exceptions import ValidationError
 from django.db import models
+from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 
 class Presentation(models.Model):
@@ -19,3 +20,6 @@ class Presentation(models.Model):
 	presentation = models.FileField(blank=True)
 	presenter = models.ForeignKey(User, blank=True, null=True)
 	conference = models.ForeignKey(Conference)
+
+	def get_absolute_url(self):
+		return "/presentations/list"
