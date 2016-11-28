@@ -34,6 +34,7 @@ AUTH_USER_MODEL = 'users.User'
 # Application definition
 
 INSTALLED_APPS = [
+    'conferences.apps.ConferencesConfig',
     'users.apps.UsersConfig',
     'presentations.apps.PresentationsConfig',
     'django.contrib.admin',
