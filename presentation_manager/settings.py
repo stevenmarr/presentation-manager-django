@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'conferences.apps.ConferencesConfig',
     'users.apps.UsersConfig',
     'presentations.apps.PresentationsConfig',
+    'jet',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
