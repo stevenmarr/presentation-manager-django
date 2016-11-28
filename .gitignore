@@ -15,4 +15,5 @@ tests/report/
 
 .DS_Store
 
-
+# Project specific
+/uploaded_presentations
